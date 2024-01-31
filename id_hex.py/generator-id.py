@@ -22,6 +22,7 @@ usuarios = list()
 class GeradorX():
     def __init__(self):
         id_token = ''
+        cont = 0
         while True:
             try:
                 caracters = int(input('Digite o tamanho do seu id:'))
@@ -32,8 +33,9 @@ class GeradorX():
         nome = str(input('Digite seu nome:'))
         gera_hex = string.hexdigits 
         for itens in range(caracters):
+            cont += itens / 2
             id_token += random.choice(gera_hex)
-        print(f'Olá {nome}, seu ID é: {id_token}')
+        print(f'Olá {nome}, seu ID é: {id_token}, e contem {cont:.1f} caracteres')
         usuarios.append(f'{nome} ')
         usuarios.append(f'"{id_token}"\n')
         with open('usuarios.txt', 'w') as users:
