@@ -2,7 +2,6 @@ from time import sleep
 import sys
 import string
 import random
-
 def linha():
     print('')
     
@@ -26,16 +25,24 @@ class GeradorX():
         while True:
             try:
                 caracters = int(input('Digite o tamanho do seu id:'))
+                if caracters <= 0:
+                    print('digite um numero positivo, tente novamente!'.upper())
+                    linha()
+                    continue
                 break
             except Exception as erro:
-                print(f'algum erro encontrado {erro}\n'
-                      'digite numeros'.upper())
+                linha()
+                print(f'Algum erro encontrado --> {erro}\n'
+                      'digite numeros inteiros positivos!'.upper())
+                linha()
         nome = str(input('Digite seu nome:'))
         gera_hex = string.hexdigits 
         for itens in range(caracters):
-            cont += itens / 2
+            cont += 1
             id_token += random.choice(gera_hex)
-        print(f'Olá {nome}, seu ID é: {id_token}, e contem {cont:.1f} caracteres')
+            print(f'{itens+1} - loading...',flush=True)
+        linha()
+        print(f'Olá {nome}, seu ID_token é: {id_token} & tem {cont} caracteres')
         usuarios.append(f'{nome} ')
         usuarios.append(f'"{id_token}"\n')
         with open('usuarios.txt', 'w') as users:
@@ -65,6 +72,6 @@ while True:
 linhatam(f'Você cadastrou {c} usuarios no sistema'.center(100)) 
 print('usuarios salvos no arquivo: usuarios.txt')
 linha()
-sleep(0.5)
+sleep(0.3)
 linhatam('Obrigado, volte sempre'.center(100))       
 exits()
