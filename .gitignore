@@ -1,3 +1,5 @@
 #ambiente virtual
 id_hex.py/venv
 /.id_hex/venv
+id_hex/__pycache__
+./id_hex/__pycache__

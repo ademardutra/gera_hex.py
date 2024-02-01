@@ -1,21 +1,9 @@
 from time import sleep
-import sys
 import string
 import random
-def linha():
-    print('')
-    
-def linhatam(msg):
-    print('='* len(msg))
-    print(f'{msg}')
-    print('=' *len(msg))
-        
-def exits():
-    sleep(0.5)
-    print('saindo...', flush=True)
-    sleep(0.5)
-    print(sys.exit())     
-    
+from defs import linha
+from defs import linhatam
+from defs import exits
 c = 0      
 usuarios = list() 
 class GeradorX():
